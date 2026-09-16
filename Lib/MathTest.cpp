@@ -206,6 +206,6 @@ void MathTest::showStatistics() const {
 	std::cout << "\n\n";
 
 	// Итог
-	char mark = calculateMark(correct_count, count);
+	int mark = calculateMark(correct_count, count);
 	std::cout << "Total Result: " << correct_count << " / " << count << " (mark: " << mark << ")\n";
 }

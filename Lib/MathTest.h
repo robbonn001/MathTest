@@ -6,7 +6,7 @@ struct Task {
 	int num_1;
 	int num_2;
 	char operation;
-	double answer;
+	int answer;
 	Task();
 	Task(int, int, char operation_ = '\0');
 };
