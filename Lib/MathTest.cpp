@@ -13,6 +13,10 @@ Task::Task(int min, int max, char operation_) {
 		throw std::invalid_argument("min не может быть больше max");
 	}
 
+	if (min == max) {
+		throw std::runtime_error("min и max не могут быть равны");
+	}
+
 	num_1 = std::rand() % (max - min) + min;
 	num_2 = std::rand() % (max - min) + min;
 
