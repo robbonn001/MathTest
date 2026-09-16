@@ -23,7 +23,7 @@ class MathTest {
 	void freeMemory();
 
 public:
-	MathTest();
+	MathTest(int size);
 	MathTest(int size, int min, int max);
 	MathTest(int size, int min, int max, char operation);
 
@@ -49,5 +49,5 @@ public:
 	int getCount() const;
 
 	// Вычислить оценку на основе процента правильных ответов
-	static char calculateMark(int correct, int total);
+	static int calculateMark(int correct, int total);
 };
