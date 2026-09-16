@@ -136,7 +136,7 @@ int MathTest::getCount() const {
 }
 
 int MathTest::calculateMark(int correct, int total) {
-	if (total <= 0) return 1;
+	if (total <= 0) return 0;
 
 	double percentage = (static_cast<double>(correct) / total) * 100.0;
 
