@@ -1,6 +1,11 @@
 #pragma once
 #include <cstdlib>
 #include <ctime>
+#include <stdexcept>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
 
 struct Task {
 	int num_1;

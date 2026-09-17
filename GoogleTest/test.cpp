@@ -12,7 +12,7 @@ TEST(TaskConstructor, DefaultConstructorGeneratesValidTask) {
     bool validOp = (task.operation == '+' || task.operation == '-' ||
         task.operation == '*' || task.operation == '/');
     
-    EXPECT_TRUE(validOp) << "invalid operation: " << task.operation;
+    EXPECT_TRUE(validOp) << "Неверная операция: " << task.operation;
 }
 
 TEST(TaskConstructor, ParameterizedConstructorRespectsRange) {

@@ -1,9 +1,4 @@
 #include "MathTest.h"
-#include <stdexcept>
-#include <iostream>
-#include <iomanip>
-#include <cmath>
-#include <string>
 
 static bool seedInitialized = false;
 
@@ -18,11 +13,13 @@ Task::Task(int min, int max, char operation_) {
 	}
 
 	if (min == max) {
-		throw std::runtime_error("min и max не могут быть равны");
+		num_1 = min;
+		num_2 = min;
 	}
-
-	num_1 = std::rand() % (max - min) + min;
-	num_2 = std::rand() % (max - min) + min;
+	else {
+		num_1 = std::rand() % (max - min) + min;
+		num_2 = std::rand() % (max - min) + min;
+	}
 
 	if (operation_ == '\0') {
 		const char operations[] = { '+', '-', '*', '/' };
@@ -164,7 +161,7 @@ void MathTest::showStatistics() const {
 	const int colWidth = 12;
 
 	// Заголовок с номерами
-	std::cout << "|" << std::setw(colWidth) << "No" << "|";
+	std::cout << "|" << std::setw(colWidth) << "Номер" << "|";
 	for (int i = 0; i < count; ++i) {
 		std::cout << std::setw(colWidth) << (i + 1) << "|";
 	}
@@ -175,30 +172,30 @@ void MathTest::showStatistics() const {
 	}
 	std::cout << "\n";
 
-	// Question
-	std::cout << "|" << std::setw(colWidth) << "Question" << "|";
+	// Вопрос
+	std::cout << "|" << std::setw(colWidth) << "Вопрос" << "|";
 	for (int i = 0; i < count; ++i) {
 		std::string q = std::to_string(tasks[i].num_1) + " " + tasks[i].operation + " " + std::to_string(tasks[i].num_2);
 		std::cout << std::setw(colWidth) << q << "|";
 	}
 	std::cout << "\n";
 
-	// True Answer
-	std::cout << "|" << std::setw(colWidth) << "True Answer" << "|";
+	// Правильные ответы
+	std::cout << "|" << std::setw(colWidth) << "Правильные ответы" << "|";
 	for (int i = 0; i < count; ++i) {
 		std::cout << std::setw(colWidth) << tasks[i].answer << "|";
 	}
 	std::cout << "\n";
 
-	// Your Answer
-	std::cout << "|" << std::setw(colWidth) << "Your Answer" << "|";
+	// Ваш ответ
+	std::cout << "|" << std::setw(colWidth) << "Ваш ответ" << "|";
 	for (int i = 0; i < count; ++i) {
 		std::cout << std::setw(colWidth) << user_answers[i] << "|";
 	}
 	std::cout << "\n";
 
-	// Result
-	std::cout << "|" << std::setw(colWidth) << "Result" << "|";
+	// Результат
+	std::cout << "|" << std::setw(colWidth) << "Результат" << "|";
 	for (int i = 0; i < count; ++i) {
 		char res = (user_answers[i] == tasks[i].answer) ? '+' : '-';
 		std::cout << std::setw(colWidth) << res << "|";
@@ -207,5 +204,5 @@ void MathTest::showStatistics() const {
 
 	// Итог
 	int mark = calculateMark(correct_count, count);
-	std::cout << "Total Result: " << correct_count << " / " << count << " (mark: " << mark << ")\n";
+	std::cout << "Итоговый результат: " << correct_count << " / " << count << " (оценка: " << mark << ")\n";
 }
